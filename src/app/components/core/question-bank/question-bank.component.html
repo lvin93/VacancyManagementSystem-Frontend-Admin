@@ -1,0 +1,50 @@
+<div style="align-items: center; gap: 16px;">
+  
+  <mat-form-field appearance="fill">
+      <mat-label>Vakansiya seç</mat-label>
+      <mat-select [(ngModel)]="selectedVacancy" (selectionChange)="onVacancyChange($event.value)">
+        <mat-option *ngFor="let vacancy of vacancies" [value]="vacancy.id">
+          {{ vacancy.title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button style="margin: 5px 50px" mat-fab color="primary" (click)="openDialog(selectedVacancy)">
+      <mat-icon>add</mat-icon>Sual
+    </button>
+</div>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let question of questions" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ question.questionText }}
+
+        </mat-panel-title>
+        <button mat-icon-button color="warn" (click)="deleteQuestion(question.id); $event.stopPropagation();">
+          <mat-icon>delete</mat-icon> 
+        </button>
+      </mat-expansion-panel-header>
+        <mat-radio-group aria-label="Select an option"  class="vertical-radio-group">
+          <mat-radio-button *ngFor="let answer of question.answers" value="1">
+            {{answer.answerText}}
+            <button mat-icon-button color="warn" (click)="deleteAnswer(answer.id)">
+              <mat-icon>delete</mat-icon> 
+            </button>
+          </mat-radio-button> 
+        </mat-radio-group>
+          <div>
+            <button mat-fab color="primary" (click)="openAddAnswerDialog(question.id)">
+              <mat-icon>add</mat-icon>cavab
+            </button>
+          </div>
+    </mat-expansion-panel>
+    
+  </mat-accordion>
+
+
+
+
+
+
+
+
+

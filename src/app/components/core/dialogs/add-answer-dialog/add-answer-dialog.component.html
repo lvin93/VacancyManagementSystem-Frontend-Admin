@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Cavab mətnini yazın</h2>
+<mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Cavab</mat-label>
+      <input matInput [(ngModel)]="answer" />
+    </mat-form-field>
+
+
+<p>
+<mat-checkbox [(ngModel)]="isCorrect">
+    <mat-label>Doğru cavab?</mat-label>
+</mat-checkbox>
+</p>
+
+  </mat-dialog-content>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">İmtina</button>
+  <button mat-button color="primary" (click)="addAnswer()">Əlavə et</button>
+</div>

@@ -1,0 +1,18 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav class="side" #sidenav mode="side" opened>
+      <h2>AdminPanel</h2>
+      <mat-nav-list>
+        <a mat-list-item href="/vacancy-group" >Vakansiya qrupları</a>
+        <a mat-list-item href="/vacancy">Vakansiyalar</a>
+        <a mat-list-item href="/candidate">Namizədlər</a>
+        <a mat-list-item href="/question-bank">Sual bankı</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    
+    <mat-sidenav-content>
+      <button style="margin: 5px;" mat-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+      <div class="content">
+        <router-outlet/>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

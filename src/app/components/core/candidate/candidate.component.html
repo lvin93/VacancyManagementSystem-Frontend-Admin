@@ -1,0 +1,76 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let candidate"> {{candidate.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="fullName">
+        <th mat-header-cell *matHeaderCellDef> Namizəd adı,soyadı </th>
+        <td mat-cell *matCellDef="let candidate"> {{candidate.fullName}} </td>
+      </ng-container>
+      
+          <!-- Name Column -->
+    <ng-container matColumnDef="fin">
+        <th mat-header-cell *matHeaderCellDef> Fin </th>
+        <td mat-cell *matCellDef="let candidate"> {{candidate.fin}} </td>
+      </ng-container>
+
+                <!-- Name Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let candidate"> {{candidate.email}} </td>
+    </ng-container>
+
+        <!-- Name Column -->
+  <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef> Telefon No </th>
+      <td mat-cell *matCellDef="let candidate"> {{candidate.phone}} </td>
+    </ng-container>
+
+    
+
+    <ng-container matColumnDef="correctAnswerCount">
+      <th mat-header-cell *matHeaderCellDef> Düzgün cavabların sayı </th>
+      <td mat-cell *matCellDef="let candidate"> {{candidate.correctAnswerCount}} </td>
+    </ng-container>
+    
+
+    <ng-container matColumnDef="wrongAnswerCount">
+        <th mat-header-cell *matHeaderCellDef> Səhv cavabların sayı </th>
+        <td mat-cell *matCellDef="let candidate"> {{candidate.wrongAnswerCount}} </td>
+      </ng-container>
+
+      
+
+
+
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="percentage">
+      <th mat-header-cell *matHeaderCellDef> Faiz </th>
+      <td mat-cell *matCellDef="let candidate"> {{candidate.percentage}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="vacancyId">
+      <th mat-header-cell *matHeaderCellDef> Test nəticəsi </th>
+      <td mat-cell *matCellDef="let candidate">
+        <button mat-mini-fab extended (click)="gotoQuizResult(candidate.vacancyId)">
+            <mat-icon>quiz</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> CV Faylı </th>
+        <td mat-cell *matCellDef="let candidate">
+            <button mat-mini-fab extended (click)="downloadResume(candidate.resumeId)">
+                <mat-icon>file_download</mat-icon>
+              </button>
+        </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
